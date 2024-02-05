@@ -1,0 +1,1 @@
+# The Near Simple Editor
