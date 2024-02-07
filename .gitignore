@@ -5,6 +5,9 @@ node_modules
 /.pnp
 .pnp.js
 
+frontend/.parcel-cache/
+contract/build/
+
 # build
 /out
 /dist
