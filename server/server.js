@@ -3,6 +3,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
+const { exec } = require('child_process');
 
 const app = express();
 const PORT = 3001;
@@ -34,7 +35,21 @@ app.post('/user', (req, res) => {
       res.send('File saved successfully');
     }
   });
+});
 
+
+app.post('/run-file', (req, res) => {
+  // Execute the JavaScript file using Node.js
+  exec('node server/clientContract/clientContract.js', (error, stdout, stderr) => {
+    if (error) {
+      console.error('Error executing file:', error);
+      res.status(500).send('Error executing file');
+    } else {
+      console.log(stdout)
+      console.log('File executed successfully');
+      res.send('File executed successfully');
+    }
+  });
 });
 
 // Start the server

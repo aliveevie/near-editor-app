@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "(MIT AND Apache-2.0)",
   "scripts": {
+    "client":"node server/clientContract/clientContract.js",
     "server": "nodemon server/server.js",
     "start": "cd frontend && npm run start",
     "deploy": "cd contract && npm run deploy",
