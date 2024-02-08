@@ -37,6 +37,7 @@ const CodeEditor = () => {
         onChange={handleChange}
       />
       <button onClick={handleSave} type='submit' >Save as JavaScript File</button>
+      <button onClick={handleSave} type='submit' >Run file</button>
     </div>
   );
 };
