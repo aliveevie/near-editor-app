@@ -11,7 +11,7 @@ const CodeEditor = () => {
   };
 
   const handleSave = () => {
-    axios.post('/user', editorContent, {
+    axios.post('http://localhost:3001/user', editorContent, {
       headers: {
         'Content-Type': 'text/plain'
       }
