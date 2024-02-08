@@ -1,2 +1,12 @@
-// Start typing your code here...
-console.log("This is the new Contract!");
+import { NearBindgen, view } from "near-sdk-js";
+
+@NearBindgen({})
+class MyContract{
+    message = 'Hello World';
+
+    @view({})
+    getGreeting() {
+        return this.message;
+    }
+
+}

@@ -40,7 +40,7 @@ app.post('/user', (req, res) => {
 
 app.post('/run-file', (req, res) => {
   // Execute the JavaScript file using Node.js
-  exec('node server/clientContract/clientContract.js', (error, stdout, stderr) => {
+  exec('node client/client.js', (error, stdout, stderr) => {
     if (error) {
       console.error('Error executing file:', error);
       res.status(500).send('Error executing file');
