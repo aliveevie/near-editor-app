@@ -15,11 +15,25 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json()); // Parse text/plain request body
+app.use(bodyParser.text());
+
 
 // Endpoint to save the JavaScript file
 app.post('/user', (req, res) => {
-  console.log(req.body);
-  // Sapecify the file path where you want to save the file
+  const content = req.body;
+
+  // Specify the file path where you want to save the file
+  const filePath = path.join(__dirname, 'clientContract', 'clientContract.js');
+
+  fs.writeFile(filePath, content, (err) => {
+    if (err) {
+      console.error('Error saving file:', err);
+      res.status(500).send('Error saving file');
+    } else {
+      console.log('File saved successfully');
+      res.send('File saved successfully');
+    }
+  });
 
 });
 
