@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import MonacoEditor from 'react-monaco-editor';
+import axios from 'axios';
 
 
 const CodeEditor = () => {
@@ -10,36 +11,21 @@ const CodeEditor = () => {
   };
 
   const handleSave = () => {
-    const userData = {
-      firstName: 'Fred',
-      lastName: 'Flintstone'
-    };
-  
-    const requestOptions = {
-      method: 'POST',
+    axios.post('/user', editorContent, {
       headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(userData)
-    };
-  
-    // Corrected URL: "http://localhost:3001/user"
-    fetch('http://localhost:3001/user', requestOptions)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+        'Content-Type': 'text/plain'
+      }
+    })
+    .then(response => {
+      console.log(response.data);
+      alert('File saved successfully!');
+    })
+    .catch(error => {
+      console.error('Error saving file:', error);
+      alert('Error saving file. Please try again.');
+    });
   };
   
-  
-
-
-
-
-
-
   return (
     <div>
       <MonacoEditor
