@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "license": "(MIT AND Apache-2.0)",
   "scripts": {
-    "client":"node server/clientContract/clientContract.js",
+    "client:build": "near-sdk-js build src/contract.js build/contract.wasm",
+    "client": "node server/clientContract/clientContract.js",
     "server": "nodemon server/server.js",
     "start": "cd frontend && npm run start",
     "deploy": "cd contract && npm run deploy",
@@ -16,9 +17,12 @@
     "postinstall": "cd frontend && npm install && cd .. && cd integration-tests && npm install && cd .. && cd contract && npm install"
   },
   "devDependencies": {
-    "near-cli": "^3.3.0"
+    "@types/node": "^20.11.17",
+    "near-cli": "^3.3.0",
+    "typescript": "^5.3.3"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "near-sdk-js": "^1.0.0"
   }
 }
