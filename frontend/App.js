@@ -12,7 +12,8 @@ export default function App({ isSignedIn, contract, wallet }) {
   const [uiPleaseWait, setUiPleaseWait] = React.useState(true);
 
   // Get blockchian state once on component load
-  React.useEffect(() => {
+  /**
+   *  React.useEffect(() => {
     contract.getGreeting()
       .then(setValueFromBlockchain)
       .catch(alert)
@@ -20,14 +21,18 @@ export default function App({ isSignedIn, contract, wallet }) {
         setUiPleaseWait(false);
       });
   }, []);
+   *  greeting={valueFromBlockchain}
+   * 
+   */
+ 
 
   /// If user not signed-in with wallet - show prompt
   if (!isSignedIn) {
     // Sign-in flow will reload the page later
-  //  return <SignInPrompt greeting={valueFromBlockchain} onClick={() => wallet.signIn()}/>;
+    return <SignInPrompt  onClick={() => wallet.signIn()}/>;
   }
-
-  function changeGreeting(e) {
+/**
+ *  function changeGreeting(e) {
     e.preventDefault();
     setUiPleaseWait(true);
     const { greetingInput } = e.target.elements;
@@ -38,10 +43,12 @@ export default function App({ isSignedIn, contract, wallet }) {
         setUiPleaseWait(false);
       });
   }
+ *  
+ */
+ 
   return (
     <>
     {/**
-     *      <SignOutButton accountId={wallet.accountId} onClick={() => wallet.signOut()}/>
       <main className={uiPleaseWait ? 'please-wait' : ''}>
         <h1>
           The contract says: <span className="greeting">{valueFromBlockchain}</span>
@@ -64,6 +71,8 @@ export default function App({ isSignedIn, contract, wallet }) {
       </main>
      * 
      */}
+    <SignOutButton accountId={wallet.accountId} onClick={() => wallet.signOut()}/>
+
     <CodeEditor />
     </>
   );
