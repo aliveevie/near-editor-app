@@ -5,7 +5,7 @@
   "scripts": {
     "client:build": "near-sdk-js build src/contract.js build/contract.wasm",
     "client": "node server/clientContract/clientContract.js",
-    "server": "nodemon server/server.js",
+    "server": "cd contract && npm run server",
     "start": "cd frontend && npm run start",
     "deploy": "cd contract && npm run deploy",
     "build": "npm run build:contract && npm run build:web",
