@@ -1,3 +1,4 @@
+// Start typing your code here...
 import { NearBindgen, near, call, view } from 'near-sdk-js';
 
 @NearBindgen({})
