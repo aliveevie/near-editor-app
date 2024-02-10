@@ -13,15 +13,17 @@
 
 .output {
     margin-top: 20px;
+    position: relative;
+    top: -500px;
+    left: 850px;
   }
   
   .console {
     padding: 10px;
     background-color: lightgray;
     border-radius: 5px;
-    max-width: 400px; /* Set max-width to limit size */
-    max-height: 400px;
-    overflow-x: auto; /* Add horizontal scrollbar if content exceeds width */
+    max-width: 300px; /* Set max-width to limit size */
+    max-height: 300px;
     height: 100%;
     width: 100%;
   }

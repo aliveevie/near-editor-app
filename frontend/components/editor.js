@@ -85,9 +85,12 @@ const CodeEditor = () => {
       <h3>Output</h3>
       <div className='console'>
        <h3>Hello</h3>
-       
+       <p>This is very good Content</p>
       </div>
-    </div>
+      <div className="result" >
+          <h3>Result</h3>
+      </div>
+</div>
      
 </div>
 
