@@ -26,7 +26,7 @@ export function SignInPrompt({onClick}) {
 export function SignOutButton({accountId, onClick}) {
   return (
     <button style={{ float: 'right' }} onClick={onClick}>
-      Sign out {accountId}
+      {accountId}
     </button>
   );
 }

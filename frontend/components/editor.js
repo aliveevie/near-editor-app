@@ -88,7 +88,7 @@ const CodeEditor = () => {
        <p>This is very good Content</p>
       </div>
       <div className="result" >
-          <h3>Result</h3>
+          
       </div>
 </div>
      
