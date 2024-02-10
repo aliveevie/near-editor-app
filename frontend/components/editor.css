@@ -10,3 +10,19 @@
     justify-content: space-between;
     margin-bottom: 10px;
 }
+
+.output {
+    margin-top: 20px;
+  }
+  
+  .console {
+    padding: 10px;
+    background-color: lightgray;
+    border-radius: 5px;
+    max-width: 400px; /* Set max-width to limit size */
+    max-height: 400px;
+    overflow-x: auto; /* Add horizontal scrollbar if content exceeds width */
+    height: 100%;
+    width: 100%;
+  }
+  

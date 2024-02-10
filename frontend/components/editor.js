@@ -25,7 +25,7 @@ const CodeEditor = () => {
   }
   `);
 
-
+  const [output, setOutput] = useState("");
 
   const handleChange = (value, event) => {
     setEditorContent(value);
@@ -79,9 +79,17 @@ const CodeEditor = () => {
             defaultValue={editorContent}
             onChange={handleChange}
             theme='vs-dark'
-    />;
-     
+    />
+
+<div className='output'>
+      <h3>Output</h3>
+      <div className='console'>
+       <h3>Hello</h3>
+       
+      </div>
     </div>
+     
+</div>
 
     
   );
