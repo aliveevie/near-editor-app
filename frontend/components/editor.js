@@ -5,25 +5,25 @@ import axios from 'axios';
 
 const CodeEditor = () => {
   const [editorContent, setEditorContent] = useState(`// Start typing your code here...
-import { NearBindgen, near, call, view } from 'near-sdk-js';
-
-@NearBindgen({})
-class HelloNear {
-  greeting: string = "Hello";
-
-  @view // This method is read-only and can be called for free
-  get_greeting(): string {
-    return this.greeting;
+  import { NearBindgen, near, call, view } from 'near-sdk-js';
+  
+  @NearBindgen({})
+  class HelloNear {
+    greeting: string = "Hello";
+  
+    @view // This method is read-only and can be called for free
+    get_greeting(): string {
+      return this.greeting;
+    }
+  
+    @call // This method changes the state, for which it cost gas
+    set_greeting({ message }: { message: string }): void {
+      // Record a log permanently to the blockchain!
+      near.log(\`Saving greeting \${message}\`);
+      this.greeting = message;
+    }
   }
-
-  @call // This method changes the state, for which it cost gas
-  set_greeting({ message }: { message: string }): void {
-    // Record a log permanently to the blockchain!
-    near.log(\`Saving greeting \${message}\`);
-    this.greeting = message;
-  }
-}
-`);
+  `);
 
 
 
@@ -62,16 +62,32 @@ class HelloNear {
   
   return (
     <div>
+    <button onClick={handleSave} type='submit' >Build</button>
+    <button onClick={handleRunFile} type='submit' >Deploy</button>
       <MonacoEditor
-        width="800"
-        height="600"
+        width="600"
+        height="400"
         language="javascript"
         theme="vs-dark"
         value={editorContent}
         onChange={handleChange}
+        options={{
+          automaticLayout: true, // automatically adjust the editor's layout
+          minimap: {
+            enabled: false // disable the minimap
+          },
+          renderIndentGuides: true, // render indent guides
+          renderLineHighlight: 'all', // highlight the entire line
+          renderWhitespace: 'boundary', // highlight whitespace only at the beginning and end of lines
+          contextmenu: false, // disable the context menu
+          wordWrap: 'on', // enable word wrapping
+          scrollBeyondLastLine: false, // do not allow scrolling beyond the last line
+          highlightActiveIndentGuide: true, // highlight the active indent guide
+          matchBrackets: 'always', // always highlight matching brackets
+          fontFamily: 'Consolas, "Courier New", monospace' // set font family
+        }}
       />
-      <button onClick={handleSave} type='submit' >Save as JavaScript File</button>
-      <button onClick={handleRunFile} type='submit' >Run file</button>
+      
     </div>
   );
 };

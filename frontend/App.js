@@ -3,7 +3,7 @@ import React from 'react';
 
 import './assets/global.css';
 
-import { EducationalText, SignInPrompt, SignOutButton } from './ui-components';
+import { SignInPrompt, SignOutButton } from './ui-components';
 import CodeEditor from './components/editor';
 
 export default function App({ isSignedIn, contract, wallet }) {
