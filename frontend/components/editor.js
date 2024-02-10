@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MonacoEditor from 'react-monaco-editor';
 import axios from 'axios';
-
+import { Editor } from '@monaco-editor/react';
 
 const CodeEditor = () => {
   const [editorContent, setEditorContent] = useState(`// Start typing your code here...
@@ -59,36 +59,29 @@ const CodeEditor = () => {
         alert('Error executing file. Please try again.');
       });
   };
+
+  /**
+    <Editor height="90vh" defaultLanguage="javascript" defaultValue="// some comment" /></>;
+   * 
+   */
   
   return (
     <div>
     <button onClick={handleSave} type='submit' >Build</button>
     <button onClick={handleRunFile} type='submit' >Deploy</button>
-      <MonacoEditor
-        width="600"
-        height="400"
-        language="javascript"
-        theme="vs-dark"
-        value={editorContent}
-        onChange={handleChange}
-        options={{
-          automaticLayout: true, // automatically adjust the editor's layout
-          minimap: {
-            enabled: false // disable the minimap
-          },
-          renderIndentGuides: true, // render indent guides
-          renderLineHighlight: 'all', // highlight the entire line
-          renderWhitespace: 'boundary', // highlight whitespace only at the beginning and end of lines
-          contextmenu: false, // disable the context menu
-          wordWrap: 'on', // enable word wrapping
-          scrollBeyondLastLine: false, // do not allow scrolling beyond the last line
-          highlightActiveIndentGuide: true, // highlight the active indent guide
-          matchBrackets: 'always', // always highlight matching brackets
-          fontFamily: 'Consolas, "Courier New", monospace' // set font family
-        }}
-      />
-      
+     
+    <Editor 
+            height="70vh"
+            width={800}
+            defaultLanguage="typescript" 
+            defaultValue={editorContent}
+            onChange={handleChange}
+            theme='vs-dark'
+            />;
+     
     </div>
+
+    
   );
 };
 
