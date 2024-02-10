@@ -3003,6 +3003,19 @@ main.please-wait .loader, main.please-wait .loader:after {
   display: inline-block;
 }
 
+.editor {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  display: flex;
+}
+
 #near-wallet-selector-modal {
   --backdrop-bg: #26262630;
   --heading-color: #222;

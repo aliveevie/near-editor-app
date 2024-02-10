@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import MonacoEditor from 'react-monaco-editor';
 import axios from 'axios';
 import { Editor } from '@monaco-editor/react';
+import './editor.css'
 
 const CodeEditor = () => {
-  const [editorContent, setEditorContent] = useState(`// Start typing your code here...
-  import { NearBindgen, near, call, view } from 'near-sdk-js';
-  
+  const [editorContent, setEditorContent] = useState(`import { NearBindgen, near, call, view } from 'near-sdk-js';
+
   @NearBindgen({})
   class HelloNear {
     greeting: string = "Hello";
@@ -66,10 +66,12 @@ const CodeEditor = () => {
    */
   
   return (
-    <div>
-    <button onClick={handleSave} type='submit' >Build</button>
-    <button onClick={handleRunFile} type='submit' >Deploy</button>
-     
+    <div className='editor'>
+    <div className='buttons' >
+        <button onClick={handleSave} type='submit' >Build</button>
+        <button onClick={handleRunFile} type='submit' >Deploy</button> 
+    </div>
+   
     <Editor 
             height="70vh"
             width={800}
@@ -77,7 +79,7 @@ const CodeEditor = () => {
             defaultValue={editorContent}
             onChange={handleChange}
             theme='vs-dark'
-            />;
+    />;
      
     </div>
 
