@@ -52,9 +52,8 @@ app.post('/user', (req, res) => {
 app.post('/run-file', (req, res) => {
   // Execute the JavaScript file using Node.js
   const account_id = req.body;
-  const contract_name = 'smartcontractbuilder' + (Math.floor(Math.random() * 100)) + '.testnet';
   
-  exec(`near create-account ibrt.testnet --useFaucet`, (error, stdout, stderr) => {
+  exec(`near deploy ${account_id} build/contract.wasm`, (error, stdout, stderr) => {
     if (error) {
       console.error('Error executing file:', error);
       res.status(500).send('Error executing file');
