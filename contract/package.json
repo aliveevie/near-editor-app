@@ -4,6 +4,8 @@
   "license": "(MIT AND Apache-2.0)",
   "type": "module",
   "scripts": {
+    "mycontract": "near-sdk-js build src/mycontract.ts build/mycontract.wasm",
+    "mydeploy":"near deploy smartcontractbuilder.testnet build/mycontract.wasm ",
     "server": "nodemon app.cjs",
     "build": "./build.sh",
     "deploy": "./deploy.sh",
