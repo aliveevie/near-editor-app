@@ -12,15 +12,14 @@ class Storage{
         }
         
         @call
-        get_data({transaction_id}:{transaction_id:string}){
+        get_data({url, contract_name}:{url:string, contract_name:string}){
             const account_id = near.predecessorAccountId();
-            const contract_name = account_id;
             this.points += 1;
-            this.data.push({account_id:account_id, contract_name:contract_name, transaction_id:transaction_id})
+            this.data.push({account_id:account_id, contract_name:contract_name, url:url, points:this.points})
             near.log(`Data Insersation Was Successfull!`) 
         }
 
-        @view
+        @call
         view_accountDetails(){
             const account_id = near.predecessorAccountId();
             // View Data data for this account only
