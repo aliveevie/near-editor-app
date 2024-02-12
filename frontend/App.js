@@ -1,13 +1,14 @@
 import 'regenerator-runtime/runtime';
 import React from 'react';
-
 import './assets/global.css';
 
 import { SignInPrompt, SignOutButton } from './ui-components';
 import CodeEditor from './components/editor';
 
 export default function App({ isSignedIn, contract, wallet }) {
+ 
   const [valueFromBlockchain, setValueFromBlockchain] = React.useState();
+
 
   const [uiPleaseWait, setUiPleaseWait] = React.useState(true);
 
@@ -73,7 +74,7 @@ export default function App({ isSignedIn, contract, wallet }) {
      */}
     <SignOutButton accountId={wallet.accountId} onClick={() => wallet.signOut()}/>
 
-    <CodeEditor />
+    <CodeEditor  account_id={wallet.accountId} />
     </>
   );
 }

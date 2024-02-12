@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import MonacoEditor from 'react-monaco-editor';
+
 import axios from 'axios';
 import { Editor } from '@monaco-editor/react';
 import './editor.css'
 
-const CodeEditor = () => {
+
+const CodeEditor = ({ account_id }) => {
   const [editorContent, setEditorContent] = useState(`import { NearBindgen, near, call, view } from 'near-sdk-js';
 
   @NearBindgen({})
@@ -26,6 +27,8 @@ const CodeEditor = () => {
   `);
 
   const [output, setOutput] = useState("");
+
+  
 
   const handleChange = (value, event) => {
     setEditorContent(value);
@@ -49,7 +52,11 @@ const CodeEditor = () => {
 
   const handleRunFile = () => {
     // Send a POST request to the backend endpoint to run the file
-    axios.post('http://localhost:3001/run-file')
+    axios.post('http://localhost:3001/run-file', account_id, {
+      headers: {
+        'Content-Type': 'text/plain'
+      }
+    })
       .then(response => {
         console.log('File executed successfully:', response.data);
         alert('File executed successfully!');

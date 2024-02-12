@@ -51,8 +51,10 @@ app.post('/user', (req, res) => {
 
 app.post('/run-file', (req, res) => {
   // Execute the JavaScript file using Node.js
-
-  exec('near deploy ib46.testnet build/hello_near.wasm', (error, stdout, stderr) => {
+  const account_id = req.body;
+  const contract_name = 'smartcontractbuilder' + (Math.floor(Math.random() * 100)) + '.testnet';
+  
+  exec(`near create-account ibrt.testnet --useFaucet`, (error, stdout, stderr) => {
     if (error) {
       console.error('Error executing file:', error);
       res.status(500).send('Error executing file');
@@ -62,6 +64,20 @@ app.post('/run-file', (req, res) => {
       res.send('File executed successfully');
     }
   });
+
+ /*
+ *exec(`near deploy ${account_id} build/contract.wasm`, (error, stdout, stderr) => {
+    if (error) {
+      console.error('Error executing file:', error);
+      res.status(500).send('Error executing file');
+    } else {
+      console.log(stdout)
+      console.log('File executed successfully');
+      res.send('File executed successfully');
+    }
+  });
+ *
+ */ 
 });
 
 // Start the server
