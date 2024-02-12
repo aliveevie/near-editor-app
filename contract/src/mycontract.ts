@@ -15,7 +15,7 @@ class Storage{
         get_data({url, contract_name}:{url:string, contract_name:string}){
             const account_id = near.predecessorAccountId();
             this.points += 1;
-            this.data.push({account_id:account_id, contract_name:contract_name, url:url, points:this.points})
+            this.data.push({account_id:account_id, contract_name:contract_name, url:url})
             near.log(`Data Insersation Was Successfull!`) 
         }
 
