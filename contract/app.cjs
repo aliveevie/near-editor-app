@@ -4,6 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
 const { exec } = require('child_process');
+const { error } = require('console');
+const { stderr } = require('process');
 
 const app = express();
 const PORT = 3001;
@@ -26,13 +28,21 @@ app.post('/user', (req, res) => {
   // Specify the file path where you want to save the file
   const filePath = path.join(__dirname, 'src', 'contract.ts');
 
-  fs.writeFile(filePath, content, (err) => {
+  fs.writeFile(filePath, content, (err, stdout) => {
     if (err) {
       console.error('Error saving file:', err);
       res.status(500).send('Error saving file');
     } else {
-      console.log('File saved successfully');
-      res.send('File saved successfully');
+      exec('npm run build', (error, stdout, stderr) => {
+        if (error) {
+          console.error('Error executing file:', error);
+          res.status(500).send('Error executing file');
+        } else {
+          console.log(stdout)
+          console.log('Contract Build successfully');
+          res.send('Contract Build successfully');
+        }
+      })
     }
   });
 });
@@ -41,6 +51,7 @@ app.post('/user', (req, res) => {
 
 app.post('/run-file', (req, res) => {
   // Execute the JavaScript file using Node.js
+
   exec('near deploy ib46.testnet build/hello_near.wasm', (error, stdout, stderr) => {
     if (error) {
       console.error('Error executing file:', error);

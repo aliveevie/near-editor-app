@@ -1,0 +1,3 @@
+DEFINE_NEAR_METHOD(get_data)
+DEFINE_NEAR_METHOD(view_accountDetails)
+DEFINE_NEAR_METHOD(view_data)
