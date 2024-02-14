@@ -3,9 +3,12 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
-const { exec } = require('child_process');
+// const { exec } = require('child_process');
 const { error } = require('console');
 const { stderr } = require('process');
+
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 
 const app = express();
 const PORT = 3001;
@@ -52,17 +55,26 @@ app.post('/user', (req, res) => {
 app.post('/run-file', (req, res) => {
   // Execute the JavaScript file using Node.js
   const account_id = req.body;
+
   
-  exec(`near deploy ${account_id} build/contract.wasm`, (error, stdout, stderr) => {
-    if (error) {
+  exec(`near generate-key ${account_id}`)
+    .then(({ stdout, stderr }) => {
+      console.log(stdout);
+      console.log('Key Generated Successfully');
+      return exec(`near deploy ${account_id} build/contract.wasm`);
+    })
+    .then(({ stdout, stderr }) => {
+      console.log(stdout);
+      console.log('Contract Created Successfully');
+      res.send('File executed successfully');
+    })
+    .catch(error => {
       console.error('Error executing file:', error);
       res.status(500).send('Error executing file');
-    } else {
-      console.log(stdout)
-      console.log('File executed successfully');
-      res.send('File executed successfully');
-    }
-  });
+    });
+  
+  
+   
 
  /*
  *exec(`near deploy ${account_id} build/contract.wasm`, (error, stdout, stderr) => {
