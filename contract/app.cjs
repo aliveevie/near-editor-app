@@ -7,6 +7,9 @@ const bodyParser = require('body-parser');
 const { error } = require('console');
 const { stderr } = require('process');
 
+const seed = require('near-seed-phrase').generateSeedPhrase();
+
+
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
@@ -55,13 +58,13 @@ app.post('/user', (req, res) => {
 app.post('/run-file', (req, res) => {
   // Execute the JavaScript file using Node.js
   const account_id = req.body;
-
+  const account_contract = 'smart_contract' + account_id;
   
-  exec(`near generate-key ${account_id}`)
+  exec(`near add-credentials ${account_contract} --secretKey ${seed.secretKey}`)
     .then(({ stdout, stderr }) => {
       console.log(stdout);
       console.log('Key Generated Successfully');
-      return exec(`near deploy ${account_id} build/contract.wasm`);
+      return exec(`near deploy ${account_contract} build/contract.wasm`);
     })
     .then(({ stdout, stderr }) => {
       console.log(stdout);
@@ -73,9 +76,6 @@ app.post('/run-file', (req, res) => {
       res.status(500).send('Error executing file');
     });
   
-  
-   
-
  /*
  *exec(`near deploy ${account_id} build/contract.wasm`, (error, stdout, stderr) => {
     if (error) {
