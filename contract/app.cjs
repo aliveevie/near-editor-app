@@ -60,16 +60,12 @@ app.post('/run-file', (req, res) => {
   const account_id = req.body;
   const account_contract = 'smart_contract' + account_id;
   
-  exec(`near add-credentials ${account_contract} --secretKey ${seed.secretKey}`)
+  exec(`near dev-deploy  build/contract.wasm`)
     .then(({ stdout, stderr }) => {
       console.log(stdout);
       console.log('Key Generated Successfully');
-      return exec(`near deploy ${account_contract} build/contract.wasm`);
-    })
-    .then(({ stdout, stderr }) => {
-      console.log(stdout);
-      console.log('Contract Created Successfully');
-      res.send('File executed successfully');
+     // return exec(`near deploy ${account_contract} build/contract.wasm`);
+     return res.json(stdout);
     })
     .catch(error => {
       console.error('Error executing file:', error);
