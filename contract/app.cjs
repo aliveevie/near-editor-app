@@ -74,7 +74,16 @@ app.post('/run-file', (req, res) => {
       exec(`near deploy ${account_contract} build/contract.wasm`)
       .then(({stdout, stderr}) => {
         console.log(stdout.split(' '))
-        res.json(stdout)
+        const info = stdout.split(' ');
+        const data = {
+          account_id: account_id,
+          contractName: info[4],
+          Trasaction_id: info[9],
+          Trasaction_info: info[info.length - 1]
+
+        }
+        console.log(data)
+        res.json(data)
     })
     
      
