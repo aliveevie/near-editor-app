@@ -26,7 +26,7 @@ const CodeEditor = ({ account_id }) => {
   }
   `);
 
-  const [output, setOutput] = useState("");
+  const [output, setOutput] = useState([]);
 
   
 
@@ -88,13 +88,20 @@ const CodeEditor = ({ account_id }) => {
             onChange={handleChange}
             theme='vs-dark'
     />
-
 <div className='output'>
-      <h3>Output</h3>
-      <div className='console'>
-       <p></p>
+  <h3>Output</h3>
+  <div className='console'>
+    {output.map((data, key) => (
+      <div key={key}>
+        <p><strong>Account ID:</strong> {data.Account_id}</p>
+        <p><strong>Contract Name:</strong> {data.ContractName}</p>
+        <p><strong>Transaction ID:</strong> {data.Trasaction_id}</p>
+        <p><strong>Transaction Info:</strong> <a>{data.Trasaction_info}</a></p>
       </div>
+    ))}
+  </div>
 </div>
+
      
 </div>
 
