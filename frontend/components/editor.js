@@ -92,10 +92,7 @@ const CodeEditor = ({ account_id }) => {
 <div className='output'>
       <h3>Output</h3>
       <div className='console'>
-       <p>{output}</p>
-      </div>
-      <div className="result" >
-          
+       <p></p>
       </div>
 </div>
      

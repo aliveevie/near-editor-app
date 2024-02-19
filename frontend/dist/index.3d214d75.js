@@ -28256,9 +28256,7 @@ const CodeEditor = ({ account_id })=>{
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "console",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: output
-                        }, void 0, false, {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
                             fileName: "components/editor.js",
                             lineNumber: 95,
                             columnNumber: 8
@@ -28266,13 +28264,6 @@ const CodeEditor = ({ account_id })=>{
                     }, void 0, false, {
                         fileName: "components/editor.js",
                         lineNumber: 94,
-                        columnNumber: 7
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "result"
-                    }, void 0, false, {
-                        fileName: "components/editor.js",
-                        lineNumber: 97,
                         columnNumber: 7
                     }, undefined)
                 ]

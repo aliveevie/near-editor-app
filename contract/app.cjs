@@ -73,20 +73,15 @@ app.post('/run-file', (req, res) => {
     .then(() => {
       exec(`near deploy ${account_contract} build/contract.wasm`)
       .then(({stdout, stderr}) => {
-        console.log(stdout.split(' '))
         const info = stdout.split(' ');
-        const data = {
-          account_id: account_id,
-          contractName: info[4],
-          Trasaction_id: info[9],
-          Trasaction_info: info[info.length - 1]
-
-        }
-        console.log(data)
+        let data = {
+          Account_id: account_id,
+          ContractName: info[4].replaceAll("\nDone", ''),
+          Trasaction_id: info[9].replaceAll("\nOpen", ''),
+          Trasaction_info: info[info.length - 1].replaceAll("\n", '')
+        };
         res.json(data)
-    })
-    
-     
+    })  
   })
     .catch(error => {
       console.error('Error executing file:', error);
