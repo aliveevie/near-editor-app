@@ -13,11 +13,10 @@
 }
 
 .output {
+    max-width: 800px;
+    width: 800px;
+    margin-bottom: 20px;
     margin-top: 20px;
-    position: relative;
-    top: -500px;
-    left: 850px;
-    width: fit-content;
     height: fit-content;
   }
   
