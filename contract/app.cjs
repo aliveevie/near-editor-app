@@ -73,7 +73,7 @@ app.post('/run-file', (req, res) => {
     .then(() => {
       exec(`near deploy ${account_contract} build/contract.wasm`)
       .then(({stdout, stderr}) => {
-        console.log("Contract Created Deployed")
+        console.log(stdout.split(' '))
         res.json(stdout)
     })
     

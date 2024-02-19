@@ -17,6 +17,8 @@
     position: relative;
     top: -500px;
     left: 850px;
+    width: fit-content;
+    height: fit-content;
   }
   
   .console {

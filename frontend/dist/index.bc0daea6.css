@@ -239,6 +239,10 @@ main.please-wait .loader, main.please-wait .loader:after {
 }
 
 .output {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   margin-top: 20px;
   position: relative;
   top: -500px;
