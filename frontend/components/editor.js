@@ -59,6 +59,7 @@ const CodeEditor = ({ account_id }) => {
     })
       .then(response => {
         console.log('File executed successfully:', response.data);
+        setOutput(response.data)
         alert('File executed successfully!');
       })
       .catch(error => {
@@ -91,8 +92,7 @@ const CodeEditor = ({ account_id }) => {
 <div className='output'>
       <h3>Output</h3>
       <div className='console'>
-       <h3>Hello</h3>
-       <p>This is very good Content</p>
+       <p>{output}</p>
       </div>
       <div className="result" >
           

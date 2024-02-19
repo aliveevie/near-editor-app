@@ -3,12 +3,9 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
-// const { exec } = require('child_process');
-const { error } = require('console');
-const { stderr } = require('process');
 
-const seed = require('near-seed-phrase').generateSeedPhrase();
 
+const crypto = require('crypto');
 
 const util = require('util');
 
@@ -55,43 +52,31 @@ app.post('/user', (req, res) => {
 });
 
 
+function generateRandomString(length) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        const randomIndex = crypto.randomInt(0, characters.length);
+        result += characters.charAt(randomIndex);
+    }
+    return result.toLowerCase();
+}
+
 
 app.post('/run-file', (req, res) => {
   // Execute the JavaScript file using Node.js
   const account_id = req.body;
   
-  const account_contract = 'smart_contract' + account_id;
+  const account_contract = generateRandomString(10) + account_id;
   
-  exec(`mkdir -p neardev`)
-    .then(({ stdout, stderr }) => {
-      const dev1_path = path.join(__dirname, 'neardev', 'dev-account')
-      const dev_path = path.join(__dirname, 'neardev', 'dev-account.env')
-      console.log('Directory Created Successifully'); 
-      fs.writeFile(dev1_path, account_id, (err, stdout) => {
-          if(err){
-            console.log(err)
-            res.status(500).send('Error Saving File')
-          }else{
-            console.log('Contract text file Created Successifully')
-          
-          }
-      })
-
-      fs.writeFile(dev_path, account_id, (err, stdout) => {
-        if(err){
-          console.log(err)
-          res.status(500).send('Error Saving File')
-        }else{
-          console.log('Contract .env file Created Successifully')
-          
-        }
-    })    
-    })
-      exec(`near dev-deploy --wasmFile build/contract.wasm --initFunction new --initArgs 
-      '{"owner_id": "${account_id}", "total_supply": "10000000"}'`)
+  exec(`near create-account ${account_contract} --useFaucet`)
+    .then(() => {
+      exec(`near deploy ${account_contract} build/contract.wasm`)
       .then(({stdout, stderr}) => {
         console.log("Contract Created Deployed")
         res.json(stdout)
+    })
+    
      
   })
     .catch(error => {

@@ -28192,6 +28192,7 @@ const CodeEditor = ({ account_id })=>{
             }
         }).then((response)=>{
             console.log("File executed successfully:", response.data);
+            setOutput(response.data);
             alert("File executed successfully!");
         }).catch((error)=>{
             console.error("Error executing file:", error);
@@ -28213,7 +28214,7 @@ const CodeEditor = ({ account_id })=>{
                         children: "Build"
                     }, void 0, false, {
                         fileName: "components/editor.js",
-                        lineNumber: 78,
+                        lineNumber: 79,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28222,13 +28223,13 @@ const CodeEditor = ({ account_id })=>{
                         children: "Deploy"
                     }, void 0, false, {
                         fileName: "components/editor.js",
-                        lineNumber: 79,
+                        lineNumber: 80,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "components/editor.js",
-                lineNumber: 77,
+                lineNumber: 78,
                 columnNumber: 5
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Editor), {
@@ -28240,7 +28241,7 @@ const CodeEditor = ({ account_id })=>{
                 theme: "vs-dark"
             }, void 0, false, {
                 fileName: "components/editor.js",
-                lineNumber: 82,
+                lineNumber: 83,
                 columnNumber: 5
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28250,30 +28251,21 @@ const CodeEditor = ({ account_id })=>{
                         children: "Output"
                     }, void 0, false, {
                         fileName: "components/editor.js",
-                        lineNumber: 92,
+                        lineNumber: 93,
                         columnNumber: 7
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "console",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                children: "Hello"
-                            }, void 0, false, {
-                                fileName: "components/editor.js",
-                                lineNumber: 94,
-                                columnNumber: 8
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                children: "This is very good Content"
-                            }, void 0, false, {
-                                fileName: "components/editor.js",
-                                lineNumber: 95,
-                                columnNumber: 8
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: output
+                        }, void 0, false, {
+                            fileName: "components/editor.js",
+                            lineNumber: 95,
+                            columnNumber: 8
+                        }, undefined)
+                    }, void 0, false, {
                         fileName: "components/editor.js",
-                        lineNumber: 93,
+                        lineNumber: 94,
                         columnNumber: 7
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28286,13 +28278,13 @@ const CodeEditor = ({ account_id })=>{
                 ]
             }, void 0, true, {
                 fileName: "components/editor.js",
-                lineNumber: 91,
+                lineNumber: 92,
                 columnNumber: 1
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "components/editor.js",
-        lineNumber: 76,
+        lineNumber: 77,
         columnNumber: 5
     }, undefined);
 };
