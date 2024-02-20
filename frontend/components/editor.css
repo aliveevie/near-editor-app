@@ -13,20 +13,42 @@
 }
 
 .output {
-    max-width: 800px;
-    width: 800px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    height: fit-content;
-  }
-  
-  .console {
-    padding: 10px;
-    background-color: lightgray;
-    border-radius: 5px;
-    max-width: 300px; /* Set max-width to limit size */
-    max-height: 300px;
-    height: 100%;
-    width: 100%;
-  }
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #1e1e1e;
+  padding: 10px;
+  color: white;
+}
+
+.output h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: white;
+}
+
+.console {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #2e2e2e;
+  padding: 20px;
+  font-size: medium;
+}
+
+.console div {
+  margin-bottom: 10px;
+}
+
+.console p {
+  margin: 0;
+}
+
+.console strong {
+  color: #9cdcfe;
+}
+
+.console a {
+  color: #4ec9b0;
+  text-decoration: none;
+}
+
   

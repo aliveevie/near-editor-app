@@ -12,12 +12,12 @@ const CodeEditor = ({ account_id }) => {
   class HelloNear {
     greeting: string = "Hello";
   
-    @view // This method is read-only and can be called for free
+    @view({})  // This method is read-only and can be called for free
     get_greeting(): string {
       return this.greeting;
     }
   
-    @call // This method changes the state, for which it cost gas
+    @call({})  // This method changes the state, for which it cost gas
     set_greeting({ message }: { message: string }): void {
       // Record a log permanently to the blockchain!
       near.log(\`Saving greeting \${message}\`);
@@ -96,7 +96,8 @@ const CodeEditor = ({ account_id }) => {
         <p><strong>Account ID:</strong> {data.Account_id}</p>
         <p><strong>Contract Name:</strong> {data.ContractName}</p>
         <p><strong>Transaction ID:</strong> {data.Trasaction_id}</p>
-        <p><strong>Transaction Info:</strong> <a>{data.Trasaction_info}</a></p>
+        <p><strong>Transaction Info:</strong> <a href={data.Transaction_info} target='_blank' >{data.Transaction_info}</a></p>
+
       </div>
     ))}
   </div>
