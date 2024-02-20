@@ -23,12 +23,12 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json()); // Parse text/plain request body
 app.use(bodyParser.text());
-
+app.use(express.static('../frontend/dist'));
 
 // Endpoint to save the JavaScript file
 app.post('/user', (req, res) => {
   const content = req.body;
-
+  console.log(content)
   // Specify the file path where you want to save the file
   const filePath = path.join(__dirname, 'src', 'contract.ts');
 
@@ -102,6 +102,10 @@ app.post('/run-file', (req, res) => {
  *
  */ 
 });
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html' ))
+})
 
 // Start the server
 app.listen(PORT, () => {

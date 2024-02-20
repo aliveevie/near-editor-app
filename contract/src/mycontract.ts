@@ -3,15 +3,15 @@ import { NearBindgen, view, call, near, Vector } from "near-sdk-js";
 
 @NearBindgen({})
 class Storage{
-        data:Vector = new Vector('data-id');
+        data = new Vector('data-id');
         points = 0;
 
-        @view
+        @view({})
         view_data(){
             return this.data.toArray()
         }
         
-        @call
+        @call({})
         get_data({url, contract_name}:{url:string, contract_name:string}){
             const account_id = near.predecessorAccountId();
             this.points += 1;
@@ -19,7 +19,7 @@ class Storage{
             near.log(`Data Insertion Was Successfull!`) 
         }
 
-        @call
+        @call({})
         view_accountDetails(){
             const account_id = near.predecessorAccountId();
             // View Data data for this account only
