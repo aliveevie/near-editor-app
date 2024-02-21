@@ -78,7 +78,7 @@ const CodeEditor = ({ account_id }) => {
         <button onClick={handleRunFile} type='submit' >Deploy</button> 
     </div>
 
-    {builder &&   <Loader source={source} text={text} />}
+    {showBuilder &&   <Loader source={source} text={text} />}
    
     <Editor 
     

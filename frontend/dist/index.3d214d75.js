@@ -28234,13 +28234,13 @@ const CodeEditor = ({ account_id })=>{
                     lineNumber: 76,
                     columnNumber: 5
                 }, undefined),
-                (0, _builderGifDefault.default) && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loader.Loader), {
+                showBuilder && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loader.Loader), {
                     source: source,
                     text: text
                 }, void 0, false, {
                     fileName: "components/editor.js",
                     lineNumber: 81,
-                    columnNumber: 19
+                    columnNumber: 23
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Editor), {
                     height: "70vh",
