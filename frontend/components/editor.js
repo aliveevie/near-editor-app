@@ -30,7 +30,8 @@ const CodeEditor = ({ account_id }) => {
 
       setShowBuilder(true);
       setText("Building Your Contract");
-      setSource(builder)
+      setSource(builder);
+      setEditor(true)
 
     axios.post('/user', editorContent, {
       headers: {
@@ -72,13 +73,15 @@ const CodeEditor = ({ account_id }) => {
   
   return (
         <>
-          <div className='editor'>
+         {showBuilder && editor &&  <Loader source={source} text={text} />}
+
+          {!editor  &&  !showBuilder && <div className='editor'>
     <div className='buttons' >
         <button onClick={handleSave} type='submit' >Build</button>
         <button onClick={handleRunFile} type='submit' >Deploy</button> 
     </div>
 
-    {showBuilder &&   <Loader source={source} text={text} />}
+   
    
     <Editor 
     
@@ -107,7 +110,7 @@ const CodeEditor = ({ account_id }) => {
 
 </div>
 
-    
+    }
         
         </>
   );

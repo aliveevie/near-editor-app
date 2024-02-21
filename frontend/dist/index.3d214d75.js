@@ -28173,6 +28173,7 @@ const CodeEditor = ({ account_id })=>{
         setShowBuilder(true);
         setText("Building Your Contract");
         setSource((0, _builderGifDefault.default));
+        setEditor(true);
         (0, _axiosDefault.default).post("/user", editorContent, {
             headers: {
                 "Content-Type": "text/plain"
@@ -28204,170 +28205,172 @@ const CodeEditor = ({ account_id })=>{
     <Editor height="90vh" defaultLanguage="javascript" defaultValue="// some comment" /></>;
    * 
    */ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "editor",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "buttons",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            onClick: handleSave,
-                            type: "submit",
-                            children: "Build"
-                        }, void 0, false, {
-                            fileName: "components/editor.js",
-                            lineNumber: 77,
-                            columnNumber: 9
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            onClick: handleRunFile,
-                            type: "submit",
-                            children: "Deploy"
-                        }, void 0, false, {
-                            fileName: "components/editor.js",
-                            lineNumber: 78,
-                            columnNumber: 9
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "components/editor.js",
-                    lineNumber: 76,
-                    columnNumber: 5
-                }, undefined),
-                showBuilder && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loader.Loader), {
-                    source: source,
-                    text: text
-                }, void 0, false, {
-                    fileName: "components/editor.js",
-                    lineNumber: 81,
-                    columnNumber: 23
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Editor), {
-                    height: "70vh",
-                    width: 800,
-                    defaultLanguage: "typescript",
-                    defaultValue: editorContent,
-                    onChange: handleChange,
-                    theme: "vs-dark"
-                }, void 0, false, {
-                    fileName: "components/editor.js",
-                    lineNumber: 83,
-                    columnNumber: 5
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "output",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                            children: "Output"
-                        }, void 0, false, {
-                            fileName: "components/editor.js",
-                            lineNumber: 93,
-                            columnNumber: 3
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "console",
-                            children: output.map((data, key)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                                                    children: "Account ID:"
-                                                }, void 0, false, {
-                                                    fileName: "components/editor.js",
-                                                    lineNumber: 97,
-                                                    columnNumber: 12
-                                                }, undefined),
-                                                " ",
-                                                data.Account_id
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "components/editor.js",
-                                            lineNumber: 97,
-                                            columnNumber: 9
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                                                    children: "Contract Name:"
-                                                }, void 0, false, {
-                                                    fileName: "components/editor.js",
-                                                    lineNumber: 98,
-                                                    columnNumber: 12
-                                                }, undefined),
-                                                " ",
-                                                data.ContractName
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "components/editor.js",
-                                            lineNumber: 98,
-                                            columnNumber: 9
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                                                    children: "Transaction ID:"
-                                                }, void 0, false, {
-                                                    fileName: "components/editor.js",
-                                                    lineNumber: 99,
-                                                    columnNumber: 12
-                                                }, undefined),
-                                                " ",
-                                                data.Trasaction_id
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "components/editor.js",
-                                            lineNumber: 99,
-                                            columnNumber: 9
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                                                    children: "Transaction Info:"
-                                                }, void 0, false, {
-                                                    fileName: "components/editor.js",
-                                                    lineNumber: 100,
-                                                    columnNumber: 12
-                                                }, undefined),
-                                                " ",
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                    href: data.Transaction_info,
-                                                    target: "_blank",
-                                                    children: data.Transaction_info
-                                                }, void 0, false, {
-                                                    fileName: "components/editor.js",
-                                                    lineNumber: 100,
-                                                    columnNumber: 47
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "components/editor.js",
-                                            lineNumber: 100,
-                                            columnNumber: 9
-                                        }, undefined)
-                                    ]
-                                }, key, true, {
-                                    fileName: "components/editor.js",
-                                    lineNumber: 96,
-                                    columnNumber: 7
-                                }, undefined))
-                        }, void 0, false, {
-                            fileName: "components/editor.js",
-                            lineNumber: 94,
-                            columnNumber: 3
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "components/editor.js",
-                    lineNumber: 92,
-                    columnNumber: 1
-                }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "components/editor.js",
-            lineNumber: 75,
-            columnNumber: 11
-        }, undefined)
-    }, void 0, false);
+        children: [
+            showBuilder && editor && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loader.Loader), {
+                source: source,
+                text: text
+            }, void 0, false, {
+                fileName: "components/editor.js",
+                lineNumber: 76,
+                columnNumber: 37
+            }, undefined),
+            !editor && !showBuilder && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "editor",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "buttons",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                onClick: handleSave,
+                                type: "submit",
+                                children: "Build"
+                            }, void 0, false, {
+                                fileName: "components/editor.js",
+                                lineNumber: 80,
+                                columnNumber: 9
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                onClick: handleRunFile,
+                                type: "submit",
+                                children: "Deploy"
+                            }, void 0, false, {
+                                fileName: "components/editor.js",
+                                lineNumber: 81,
+                                columnNumber: 9
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "components/editor.js",
+                        lineNumber: 79,
+                        columnNumber: 5
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Editor), {
+                        height: "70vh",
+                        width: 800,
+                        defaultLanguage: "typescript",
+                        defaultValue: editorContent,
+                        onChange: handleChange,
+                        theme: "vs-dark"
+                    }, void 0, false, {
+                        fileName: "components/editor.js",
+                        lineNumber: 86,
+                        columnNumber: 5
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "output",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                children: "Output"
+                            }, void 0, false, {
+                                fileName: "components/editor.js",
+                                lineNumber: 96,
+                                columnNumber: 3
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "console",
+                                children: output.map((data, key)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                        children: "Account ID:"
+                                                    }, void 0, false, {
+                                                        fileName: "components/editor.js",
+                                                        lineNumber: 100,
+                                                        columnNumber: 12
+                                                    }, undefined),
+                                                    " ",
+                                                    data.Account_id
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "components/editor.js",
+                                                lineNumber: 100,
+                                                columnNumber: 9
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                        children: "Contract Name:"
+                                                    }, void 0, false, {
+                                                        fileName: "components/editor.js",
+                                                        lineNumber: 101,
+                                                        columnNumber: 12
+                                                    }, undefined),
+                                                    " ",
+                                                    data.ContractName
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "components/editor.js",
+                                                lineNumber: 101,
+                                                columnNumber: 9
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                        children: "Transaction ID:"
+                                                    }, void 0, false, {
+                                                        fileName: "components/editor.js",
+                                                        lineNumber: 102,
+                                                        columnNumber: 12
+                                                    }, undefined),
+                                                    " ",
+                                                    data.Trasaction_id
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "components/editor.js",
+                                                lineNumber: 102,
+                                                columnNumber: 9
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                        children: "Transaction Info:"
+                                                    }, void 0, false, {
+                                                        fileName: "components/editor.js",
+                                                        lineNumber: 103,
+                                                        columnNumber: 12
+                                                    }, undefined),
+                                                    " ",
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                        href: data.Transaction_info,
+                                                        target: "_blank",
+                                                        children: data.Transaction_info
+                                                    }, void 0, false, {
+                                                        fileName: "components/editor.js",
+                                                        lineNumber: 103,
+                                                        columnNumber: 47
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "components/editor.js",
+                                                lineNumber: 103,
+                                                columnNumber: 9
+                                            }, undefined)
+                                        ]
+                                    }, key, true, {
+                                        fileName: "components/editor.js",
+                                        lineNumber: 99,
+                                        columnNumber: 7
+                                    }, undefined))
+                            }, void 0, false, {
+                                fileName: "components/editor.js",
+                                lineNumber: 97,
+                                columnNumber: 3
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "components/editor.js",
+                        lineNumber: 95,
+                        columnNumber: 1
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "components/editor.js",
+                lineNumber: 78,
+                columnNumber: 41
+            }, undefined)
+        ]
+    }, void 0, true);
 };
 _s(CodeEditor, "8YnQYN6XaVQEk4LrptTgyZ0s+Yo=");
 _c = CodeEditor;
