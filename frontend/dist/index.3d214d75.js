@@ -28340,11 +28340,6 @@ const CodeEditor = ({ account_id })=>{
                 fileName: "components/editor.js",
                 lineNumber: 80,
                 columnNumber: 1
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loader.Loader), {}, void 0, false, {
-                fileName: "components/editor.js",
-                lineNumber: 95,
-                columnNumber: 1
             }, undefined)
         ]
     }, void 0, true, {
@@ -33634,26 +33629,29 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Loader", ()=>Loader);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _loaderCss = require("./loader.css");
-var _builderGif = require("../assets/builder.gif");
-var _builderGifDefault = parcelHelpers.interopDefault(_builderGif);
-var _deployGif = require("../assets/deploy.gif");
-var _deployGifDefault = parcelHelpers.interopDefault(_deployGif);
-var _errorGif = require("../assets/error.gif");
-var _errorGifDefault = parcelHelpers.interopDefault(_errorGif);
 function Loader({ source, text }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "container",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-            src: (0, _builderGifDefault.default),
-            alt: "This is Success"
-        }, void 0, false, {
-            fileName: "components/loader.js",
-            lineNumber: 12,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                src: source,
+                alt: "This is Success"
+            }, void 0, false, {
+                fileName: "components/loader.js",
+                lineNumber: 8,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: text
+            }, void 0, false, {
+                fileName: "components/loader.js",
+                lineNumber: 9,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "components/loader.js",
-        lineNumber: 11,
+        lineNumber: 7,
         columnNumber: 9
     }, this);
 }
@@ -33666,51 +33664,7 @@ $RefreshReg$(_c, "Loader");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./loader.css":"152ix","../assets/builder.gif":"lwJdy","../assets/deploy.gif":"f4CM9","../assets/error.gif":"jvCUd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"152ix":[function() {},{}],"lwJdy":[function(require,module,exports) {
-module.exports = require("440769973671906f").getBundleURL("UckoE") + "builder.e56178f9.gif" + "?" + Date.now();
-
-},{"440769973671906f":"lgJ39"}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-}
-// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"f4CM9":[function(require,module,exports) {
-module.exports = require("b0f23d19b0d81fd").getBundleURL("UckoE") + "deploy.7203d12a.gif" + "?" + Date.now();
-
-},{"b0f23d19b0d81fd":"lgJ39"}],"jvCUd":[function(require,module,exports) {
-module.exports = require("28dcaaddb77a2b9b").getBundleURL("UckoE") + "error.fc10eaee.gif" + "?" + Date.now();
-
-},{"28dcaaddb77a2b9b":"lgJ39"}],"dg9wB":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./loader.css":"152ix","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"152ix":[function() {},{}],"dg9wB":[function(require,module,exports) {
 // near api js
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -63892,7 +63846,42 @@ module.exports = function() {
 },{}],"dGAA6":[function(require,module,exports) {
 module.exports = require("b9081fc21ff845fc").getBundleURL("UckoE") + "ledger-icon.a0186cc1.png" + "?" + Date.now();
 
-},{"b9081fc21ff845fc":"lgJ39"}],"aTHwi":[function(require,module,exports) {
+},{"b9081fc21ff845fc":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"aTHwi":[function(require,module,exports) {
 module.exports = require("9e535228b8d587c1").getBundleURL("UckoE") + "my-near-wallet-icon.ebfed669.png" + "?" + Date.now();
 
 },{"9e535228b8d587c1":"lgJ39"}],"9enQf":[function(require,module,exports) {

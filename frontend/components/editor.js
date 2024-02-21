@@ -92,7 +92,7 @@ const CodeEditor = ({ account_id }) => {
   </div>
 </div>
 
-<Loader />
+
 </div>
 
     
