@@ -2,34 +2,23 @@ import React, { useState } from 'react';
 
 import axios from 'axios';
 import { Editor } from '@monaco-editor/react';
-import './editor.css'
+import './editor.css';
+import { Loader } from './loader';
 
 
 const CodeEditor = ({ account_id }) => {
   const [editorContent, setEditorContent] = useState(`import { NearBindgen, near, call, view } from 'near-sdk-js';
 
-  @NearBindgen({})
-  class HelloNear {
-    greeting: string = "Hello";
   
-    @view({})  // This method is read-only and can be called for free
-    get_greeting(): string {
-      return this.greeting;
-    }
-  
-    @call({})  // This method changes the state, for which it cost gas
-    set_greeting({ message }: { message: string }): void {
-      // Record a log permanently to the blockchain!
-      near.log(\`Saving greeting \${message}\`);
-      this.greeting = message;
-    }
-  }
   `);
 
   const [output, setOutput] = useState([]);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showDeploy, setShowDeploy] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [showBuilder, setShowBuilder] = useState(false);
   
   
-
   const handleChange = (value, event) => {
     setEditorContent(value);
   };
@@ -103,7 +92,7 @@ const CodeEditor = ({ account_id }) => {
   </div>
 </div>
 
-     
+<Loader />
 </div>
 
     
