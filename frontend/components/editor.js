@@ -4,26 +4,34 @@ import axios from 'axios';
 import { Editor } from '@monaco-editor/react';
 import './editor.css';
 import { Loader } from './loader';
-
+import success from '../assets/success.gif';
+import deploy from '../assets/deploy.gif';
+import error from '../assets/error.gif';
+import builder from '../assets/builder.gif';
 
 const CodeEditor = ({ account_id }) => {
-  const [editorContent, setEditorContent] = useState(`import { NearBindgen, near, call, view } from 'near-sdk-js';
-
-  
-  `);
+  const [editorContent, setEditorContent] = useState(`import { NearBindgen, near, call, view } from 'near-sdk-js';`);
 
   const [output, setOutput] = useState([]);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showDeploy, setShowDeploy] = useState(false);
   const [showError, setShowError] = useState(false);
   const [showBuilder, setShowBuilder] = useState(false);
-  
+  const [editor, setEditor] = useState(false);
+  const [source, setSource] = useState('');
+  const [text, setText] = useState('');
+
   
   const handleChange = (value, event) => {
-    setEditorContent(value);
+        setEditorContent(value);
   };
 
   const handleSave = () => {
+
+      setShowBuilder(true);
+      setText("Building Your Contract");
+      setSource(builder)
+
     axios.post('/user', editorContent, {
       headers: {
         'Content-Type': 'text/plain'
@@ -63,13 +71,17 @@ const CodeEditor = ({ account_id }) => {
    */
   
   return (
-    <div className='editor'>
+        <>
+          <div className='editor'>
     <div className='buttons' >
         <button onClick={handleSave} type='submit' >Build</button>
         <button onClick={handleRunFile} type='submit' >Deploy</button> 
     </div>
+
+    {builder &&   <Loader source={source} text={text} />}
    
     <Editor 
+    
             height="70vh"
             width={800}
             defaultLanguage="typescript" 
@@ -96,6 +108,8 @@ const CodeEditor = ({ account_id }) => {
 </div>
 
     
+        
+        </>
   );
 };
 
