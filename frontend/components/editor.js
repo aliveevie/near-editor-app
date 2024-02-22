@@ -11,7 +11,10 @@ import builder from '../assets/builder.gif';
 
 const CodeEditor = ({ account_id }) => {
   const [editorContent, setEditorContent] = useState(`import { NearBindgen, near, call, view } from 'near-sdk-js';
-  // Write Your Smart Contract Here
+  // Write Your Smart Contract in Typescript please
+  // This editor accept only Typescript
+  // Dont Worry about the import error
+  // Just build your contract
   
   `);
 
@@ -133,7 +136,7 @@ const CodeEditor = ({ account_id }) => {
           <p><strong>Account ID:</strong> {data.Account_id} <button onClick={() => copyToClipboard(data.Account_id)}>Copy</button></p>
           <p><strong>Contract Name:</strong> {data.ContractName} <button onClick={() => copyToClipboard(data.ContractName)}>Copy</button></p>
           <p><strong>Transaction ID:</strong> {data.Trasaction_id} <button onClick={() => copyToClipboard(data.Trasaction_id)}>Copy</button></p>
-          <p><strong>Transaction Info:</strong> <a href={data.Transaction_info} target='_blank'>{data.Transaction_info}</a> <button onClick={() => copyToClipboard(data.Transaction_info)}>Copy</button></p>
+          <p><strong>Transaction Info:</strong> <a href={data.Trasaction_info} target='_blank'>{data.Trasaction_info}</a> <button onClick={() => copyToClipboard(data.Trasaction_info)}>Copy</button></p>
           </div>
         ))}
       </div>
@@ -145,5 +148,6 @@ const CodeEditor = ({ account_id }) => {
         </>
   );
 };
+//  Trasaction_info
 
 export default CodeEditor;
