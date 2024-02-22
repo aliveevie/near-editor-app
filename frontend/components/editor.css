@@ -12,6 +12,18 @@
     margin-bottom: 10px;
 }
 
+button.disabled {
+  opacity: 0.5;
+}
+
+button.disabled:hover {
+  background-color: inherit; /* Override hover background */
+  color: inherit; /* Override hover color */
+  cursor: not-allowed;
+  
+}
+
+
 .output {
   border: 1px solid #ccc;
   border-radius: 5px;

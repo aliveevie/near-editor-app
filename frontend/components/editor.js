@@ -20,6 +20,7 @@ const CodeEditor = ({ account_id }) => {
   const [editor, setEditor] = useState(false);
   const [source, setSource] = useState('');
   const [text, setText] = useState('');
+  const [active, setActive] = useState(false);
   
 
   
@@ -34,6 +35,7 @@ const CodeEditor = ({ account_id }) => {
     setSource(builder);
     setEditor(true);
 
+
     axios.post('http://localhost:3001/user', editorContent, {
       headers: {
         'Content-Type': 'text/plain'
@@ -42,12 +44,11 @@ const CodeEditor = ({ account_id }) => {
     .then(response => {
       setSource(success);
       setText("Contract Successifully Build");
+      setActive(!active)
       setTimeout(() => {
           setShowBuilder(false);
           setEditor(false);
-        }, 10000)
-      
-       
+        }, 10000) 
     })
     .catch(error => {
       console.error('Error saving file:', error);
@@ -74,21 +75,27 @@ const CodeEditor = ({ account_id }) => {
       });
   };
 
-  /**
-    <Editor height="90vh" defaultLanguage="javascript" defaultValue="// some comment" /></>;
-   * 
-   */
-  
   return (
         <>
          {showBuilder && editor &&  <Builder source={source} text={text} />}
 
-      
-
           {!editor  &&  !showBuilder && <div className='editor'>
     <div className='buttons' >
         <button onClick={handleSave} type='submit' >Build</button>
-        <button onClick={handleRunFile} type='submit' >Deploy</button> 
+
+        <button
+          onClick={handleRunFile}
+          type='submit'
+          disabled={!active}
+          className={active ? '' : 'disabled'}
+        >
+          {active ? 'Deploy' : 'Deploy (Disabled)'}
+</button>
+
+
+
+
+
     </div>
 
    
