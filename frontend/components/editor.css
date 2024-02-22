@@ -23,6 +23,10 @@ button.disabled:hover {
   
 }
 
+.active{
+  cursor: pointer;
+}
+
 
 .output {
   border: 1px solid #ccc;

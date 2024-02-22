@@ -6,7 +6,7 @@ import './editor.css';
 import { Builder, Success, Deploy, Error } from './loader';
 import success from '../assets/success.gif';
 import deploy from '../assets/deploy.gif';
-import error from '../assets/error.gif';
+import erro from '../assets/error.gif';
 import builder from '../assets/builder.gif';
 
 const CodeEditor = ({ account_id }) => {
@@ -43,17 +43,21 @@ const CodeEditor = ({ account_id }) => {
     })
     .then(response => {
       setSource(success);
-      setText("Contract Successifully Build");
+      setText("Contract Successfully Build");
       setActive(!active)
       setTimeout(() => {
           setShowBuilder(false);
           setEditor(false);
-        }, 10000) 
+        }, 5000) 
     })
     .catch(error => {
       console.error('Error saving file:', error);
-        setSource(error);
-        setText("UnExpected Error Occured")
+        setSource(erro);
+        setText("UnExpected Error try again");
+        setTimeout(() => {
+          setShowBuilder(false);
+          setEditor(false);
+        }, 5000);
     });
   };
 
@@ -65,13 +69,21 @@ const CodeEditor = ({ account_id }) => {
       }
     })
       .then(response => {
-        console.log('File executed successfully:', response.data);
         setOutput(response.data)
-        alert('File executed successfully!');
+        setSource(deploy);
+        setText("Contract Successfully Build");
+        setTimeout(() => {
+            setShowBuilder(false);
+            setEditor(false);
+          }, 5000) 
       })
       .catch(error => {
-        console.error('Error executing file:', error);
-        alert('Error executing file. Please try again.');
+        setSource(erro);
+        setText("Deploy Failed, Unexpected Error Try again");
+        setTimeout(() => {
+          setShowBuilder(false);
+          setEditor(false);
+        }, 5000);
       });
   };
 

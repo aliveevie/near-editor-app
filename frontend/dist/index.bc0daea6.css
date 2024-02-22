@@ -248,6 +248,10 @@ button.disabled:hover {
   cursor: not-allowed;
 }
 
+.active {
+  cursor: pointer;
+}
+
 .output {
   color: #fff;
   background-color: #1e1e1e;
