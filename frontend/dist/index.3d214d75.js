@@ -28179,12 +28179,12 @@ const CodeEditor = ({ account_id })=>{
                 "Content-Type": "text/plain"
             }
         }).then((response)=>{
+            setSource((0, _successGifDefault.default));
+            setText("Contract Successifully Build");
             setTimeout(()=>{
-                setSource((0, _successGifDefault.default));
-                setText("Building Was Success");
+                setShowBuilder(false);
+                setEditor(false);
             }, 10000);
-        //  setShowBuilder(false);
-        //  setEditor(false);
         }).catch((error)=>{
             console.error("Error saving file:", error);
             setSource(error);
@@ -28211,12 +28211,12 @@ const CodeEditor = ({ account_id })=>{
    * 
    */ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            showBuilder && editor && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loader.Loader), {
+            showBuilder && editor && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loader.Builder), {
                 source: source,
                 text: text
             }, void 0, false, {
                 fileName: "components/editor.js",
-                lineNumber: 83,
+                lineNumber: 84,
                 columnNumber: 37
             }, undefined),
             !editor && !showBuilder && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28231,7 +28231,7 @@ const CodeEditor = ({ account_id })=>{
                                 children: "Build"
                             }, void 0, false, {
                                 fileName: "components/editor.js",
-                                lineNumber: 87,
+                                lineNumber: 90,
                                 columnNumber: 9
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28240,13 +28240,13 @@ const CodeEditor = ({ account_id })=>{
                                 children: "Deploy"
                             }, void 0, false, {
                                 fileName: "components/editor.js",
-                                lineNumber: 88,
+                                lineNumber: 91,
                                 columnNumber: 9
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "components/editor.js",
-                        lineNumber: 86,
+                        lineNumber: 89,
                         columnNumber: 5
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Editor), {
@@ -28258,7 +28258,7 @@ const CodeEditor = ({ account_id })=>{
                         theme: "vs-dark"
                     }, void 0, false, {
                         fileName: "components/editor.js",
-                        lineNumber: 93,
+                        lineNumber: 96,
                         columnNumber: 5
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28268,7 +28268,7 @@ const CodeEditor = ({ account_id })=>{
                                 children: "Output"
                             }, void 0, false, {
                                 fileName: "components/editor.js",
-                                lineNumber: 103,
+                                lineNumber: 106,
                                 columnNumber: 3
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28281,7 +28281,7 @@ const CodeEditor = ({ account_id })=>{
                                                         children: "Account ID:"
                                                     }, void 0, false, {
                                                         fileName: "components/editor.js",
-                                                        lineNumber: 107,
+                                                        lineNumber: 110,
                                                         columnNumber: 12
                                                     }, undefined),
                                                     " ",
@@ -28289,7 +28289,7 @@ const CodeEditor = ({ account_id })=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/editor.js",
-                                                lineNumber: 107,
+                                                lineNumber: 110,
                                                 columnNumber: 9
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28298,7 +28298,7 @@ const CodeEditor = ({ account_id })=>{
                                                         children: "Contract Name:"
                                                     }, void 0, false, {
                                                         fileName: "components/editor.js",
-                                                        lineNumber: 108,
+                                                        lineNumber: 111,
                                                         columnNumber: 12
                                                     }, undefined),
                                                     " ",
@@ -28306,7 +28306,7 @@ const CodeEditor = ({ account_id })=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/editor.js",
-                                                lineNumber: 108,
+                                                lineNumber: 111,
                                                 columnNumber: 9
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28315,7 +28315,7 @@ const CodeEditor = ({ account_id })=>{
                                                         children: "Transaction ID:"
                                                     }, void 0, false, {
                                                         fileName: "components/editor.js",
-                                                        lineNumber: 109,
+                                                        lineNumber: 112,
                                                         columnNumber: 12
                                                     }, undefined),
                                                     " ",
@@ -28323,7 +28323,7 @@ const CodeEditor = ({ account_id })=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/editor.js",
-                                                lineNumber: 109,
+                                                lineNumber: 112,
                                                 columnNumber: 9
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28332,7 +28332,7 @@ const CodeEditor = ({ account_id })=>{
                                                         children: "Transaction Info:"
                                                     }, void 0, false, {
                                                         fileName: "components/editor.js",
-                                                        lineNumber: 110,
+                                                        lineNumber: 113,
                                                         columnNumber: 12
                                                     }, undefined),
                                                     " ",
@@ -28342,36 +28342,36 @@ const CodeEditor = ({ account_id })=>{
                                                         children: data.Transaction_info
                                                     }, void 0, false, {
                                                         fileName: "components/editor.js",
-                                                        lineNumber: 110,
+                                                        lineNumber: 113,
                                                         columnNumber: 47
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/editor.js",
-                                                lineNumber: 110,
+                                                lineNumber: 113,
                                                 columnNumber: 9
                                             }, undefined)
                                         ]
                                     }, key, true, {
                                         fileName: "components/editor.js",
-                                        lineNumber: 106,
+                                        lineNumber: 109,
                                         columnNumber: 7
                                     }, undefined))
                             }, void 0, false, {
                                 fileName: "components/editor.js",
-                                lineNumber: 104,
+                                lineNumber: 107,
                                 columnNumber: 3
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "components/editor.js",
-                        lineNumber: 102,
+                        lineNumber: 105,
                         columnNumber: 1
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "components/editor.js",
-                lineNumber: 85,
+                lineNumber: 88,
                 columnNumber: 41
             }, undefined)
         ]
@@ -33655,38 +33655,121 @@ $parcel$ReactRefreshHelpers$0c8c.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Loader", ()=>Loader);
+parcelHelpers.export(exports, "Builder", ()=>Builder);
+parcelHelpers.export(exports, "Success", ()=>Success);
+parcelHelpers.export(exports, "Deploy", ()=>Deploy);
+parcelHelpers.export(exports, "Error", ()=>Error);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _loaderCss = require("./loader.css");
-function Loader({ source, text }) {
+function Builder({ source, text }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "container",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                src: source,
-                alt: "This is Success"
+                src: source
             }, void 0, false, {
                 fileName: "components/loader.js",
-                lineNumber: 8,
+                lineNumber: 6,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: text
             }, void 0, false, {
                 fileName: "components/loader.js",
-                lineNumber: 9,
+                lineNumber: 7,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "components/loader.js",
-        lineNumber: 7,
+        lineNumber: 5,
         columnNumber: 9
     }, this);
 }
-_c = Loader;
-var _c;
-$RefreshReg$(_c, "Loader");
+_c = Builder;
+function Success({ source, text }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "container",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                src: source
+            }, void 0, false, {
+                fileName: "components/loader.js",
+                lineNumber: 15,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: text
+            }, void 0, false, {
+                fileName: "components/loader.js",
+                lineNumber: 16,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "components/loader.js",
+        lineNumber: 14,
+        columnNumber: 9
+    }, this);
+}
+_c1 = Success;
+function Deploy({ source, text }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "container",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                src: source
+            }, void 0, false, {
+                fileName: "components/loader.js",
+                lineNumber: 24,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: text
+            }, void 0, false, {
+                fileName: "components/loader.js",
+                lineNumber: 25,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "components/loader.js",
+        lineNumber: 23,
+        columnNumber: 9
+    }, this);
+}
+_c2 = Deploy;
+function Error({ source, text }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "container",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                src: source
+            }, void 0, false, {
+                fileName: "components/loader.js",
+                lineNumber: 33,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: text
+            }, void 0, false, {
+                fileName: "components/loader.js",
+                lineNumber: 34,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "components/loader.js",
+        lineNumber: 32,
+        columnNumber: 9
+    }, this);
+}
+_c3 = Error;
+var _c, _c1, _c2, _c3;
+$RefreshReg$(_c, "Builder");
+$RefreshReg$(_c1, "Success");
+$RefreshReg$(_c2, "Deploy");
+$RefreshReg$(_c3, "Error");
 
   $parcel$ReactRefreshHelpers$0c8c.postlude(module);
 } finally {

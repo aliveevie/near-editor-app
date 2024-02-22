@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Editor } from '@monaco-editor/react';
 import './editor.css';
-import { Loader } from './loader';
+import { Builder, Success, Deploy, Error } from './loader';
 import success from '../assets/success.gif';
 import deploy from '../assets/deploy.gif';
 import error from '../assets/error.gif';
@@ -40,12 +40,13 @@ const CodeEditor = ({ account_id }) => {
       }
     })
     .then(response => {
-        setTimeout(() => {
-          setSource(success);
-          setText("Building Was Success");
+      setSource(success);
+      setText("Contract Successifully Build");
+      setTimeout(() => {
+          setShowBuilder(false);
+          setEditor(false);
         }, 10000)
-      //  setShowBuilder(false);
-      //  setEditor(false);
+      
        
     })
     .catch(error => {
@@ -80,7 +81,9 @@ const CodeEditor = ({ account_id }) => {
   
   return (
         <>
-         {showBuilder && editor &&  <Loader source={source} text={text} />}
+         {showBuilder && editor &&  <Builder source={source} text={text} />}
+
+      
 
           {!editor  &&  !showBuilder && <div className='editor'>
     <div className='buttons' >
