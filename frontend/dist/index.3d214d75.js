@@ -28173,6 +28173,10 @@ const CodeEditor = ({ account_id })=>{
     const handleChange = (value, event)=>{
         setEditorContent(value);
     };
+    const copyToClipboard = (text)=>{
+        navigator.clipboard.writeText(text);
+    // You can add additional logic here to provide user feedback that the text has been copied, such as displaying a message or changing the button's appearance.
+    };
     const handleSave = ()=>{
         setShowBuilder(true);
         setText("Building Your Contract");
@@ -28191,7 +28195,7 @@ const CodeEditor = ({ account_id })=>{
         }).catch((error)=>{
             console.error("Error saving file:", error);
             setSource((0, _errorGifDefault.default));
-            setText("UnExpected Error try again");
+            setText("Build Failed, try again");
             setTimeout(()=>{
                 setShowBuilder(false);
             }, 5000);
@@ -28207,6 +28211,7 @@ const CodeEditor = ({ account_id })=>{
                 "Content-Type": "text/plain"
             }
         }).then((response)=>{
+            console.log(response.data);
             setOutput(response.data);
             setSource((0, _successGifDefault.default));
             setText("Deployed");
@@ -28215,7 +28220,7 @@ const CodeEditor = ({ account_id })=>{
             }, 5000);
         }).catch((error)=>{
             setSource((0, _errorGifDefault.default));
-            setText("Deploy Failed, Unexpected Error Try again");
+            setText("Deploy Failed, Try again");
             setTimeout(()=>{
                 setShowBuilder(false);
             }, 5000);
@@ -28232,12 +28237,12 @@ const CodeEditor = ({ account_id })=>{
                         text: text
                     }, void 0, false, {
                         fileName: "components/editor.js",
-                        lineNumber: 97,
+                        lineNumber: 103,
                         columnNumber: 21
                     }, undefined)
                 }, void 0, false, {
                     fileName: "components/editor.js",
-                    lineNumber: 96,
+                    lineNumber: 102,
                     columnNumber: 3
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28252,7 +28257,7 @@ const CodeEditor = ({ account_id })=>{
                                     children: "Build"
                                 }, void 0, false, {
                                     fileName: "components/editor.js",
-                                    lineNumber: 102,
+                                    lineNumber: 108,
                                     columnNumber: 7
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28263,13 +28268,13 @@ const CodeEditor = ({ account_id })=>{
                                     children: active ? "Deploy" : "Deploy (Disabled)"
                                 }, void 0, false, {
                                     fileName: "components/editor.js",
-                                    lineNumber: 103,
+                                    lineNumber: 109,
                                     columnNumber: 7
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "components/editor.js",
-                            lineNumber: 101,
+                            lineNumber: 107,
                             columnNumber: 5
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Editor), {
@@ -28281,7 +28286,7 @@ const CodeEditor = ({ account_id })=>{
                             theme: "vs-dark"
                         }, void 0, false, {
                             fileName: "components/editor.js",
-                            lineNumber: 113,
+                            lineNumber: 119,
                             columnNumber: 5
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28291,7 +28296,7 @@ const CodeEditor = ({ account_id })=>{
                                     children: "Output"
                                 }, void 0, false, {
                                     fileName: "components/editor.js",
-                                    lineNumber: 123,
+                                    lineNumber: 129,
                                     columnNumber: 7
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28304,16 +28309,25 @@ const CodeEditor = ({ account_id })=>{
                                                             children: "Account ID:"
                                                         }, void 0, false, {
                                                             fileName: "components/editor.js",
-                                                            lineNumber: 127,
-                                                            columnNumber: 16
+                                                            lineNumber: 133,
+                                                            columnNumber: 14
                                                         }, undefined),
                                                         " ",
-                                                        data.Account_id
+                                                        data.Account_id,
+                                                        " ",
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                            onClick: ()=>copyToClipboard(data.Account_id),
+                                                            children: "Copy"
+                                                        }, void 0, false, {
+                                                            fileName: "components/editor.js",
+                                                            lineNumber: 133,
+                                                            columnNumber: 61
+                                                        }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "components/editor.js",
-                                                    lineNumber: 127,
-                                                    columnNumber: 13
+                                                    lineNumber: 133,
+                                                    columnNumber: 11
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                                     children: [
@@ -28321,16 +28335,25 @@ const CodeEditor = ({ account_id })=>{
                                                             children: "Contract Name:"
                                                         }, void 0, false, {
                                                             fileName: "components/editor.js",
-                                                            lineNumber: 128,
-                                                            columnNumber: 16
+                                                            lineNumber: 134,
+                                                            columnNumber: 14
                                                         }, undefined),
                                                         " ",
-                                                        data.ContractName
+                                                        data.ContractName,
+                                                        " ",
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                            onClick: ()=>copyToClipboard(data.ContractName),
+                                                            children: "Copy"
+                                                        }, void 0, false, {
+                                                            fileName: "components/editor.js",
+                                                            lineNumber: 134,
+                                                            columnNumber: 66
+                                                        }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "components/editor.js",
-                                                    lineNumber: 128,
-                                                    columnNumber: 13
+                                                    lineNumber: 134,
+                                                    columnNumber: 11
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                                     children: [
@@ -28338,16 +28361,25 @@ const CodeEditor = ({ account_id })=>{
                                                             children: "Transaction ID:"
                                                         }, void 0, false, {
                                                             fileName: "components/editor.js",
-                                                            lineNumber: 129,
-                                                            columnNumber: 16
+                                                            lineNumber: 135,
+                                                            columnNumber: 14
                                                         }, undefined),
                                                         " ",
-                                                        data.Trasaction_id
+                                                        data.Trasaction_id,
+                                                        " ",
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                            onClick: ()=>copyToClipboard(data.Trasaction_id),
+                                                            children: "Copy"
+                                                        }, void 0, false, {
+                                                            fileName: "components/editor.js",
+                                                            lineNumber: 135,
+                                                            columnNumber: 68
+                                                        }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "components/editor.js",
-                                                    lineNumber: 129,
-                                                    columnNumber: 13
+                                                    lineNumber: 135,
+                                                    columnNumber: 11
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                                     children: [
@@ -28355,8 +28387,8 @@ const CodeEditor = ({ account_id })=>{
                                                             children: "Transaction Info:"
                                                         }, void 0, false, {
                                                             fileName: "components/editor.js",
-                                                            lineNumber: 130,
-                                                            columnNumber: 16
+                                                            lineNumber: 136,
+                                                            columnNumber: 14
                                                         }, undefined),
                                                         " ",
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -28365,42 +28397,51 @@ const CodeEditor = ({ account_id })=>{
                                                             children: data.Transaction_info
                                                         }, void 0, false, {
                                                             fileName: "components/editor.js",
-                                                            lineNumber: 130,
-                                                            columnNumber: 51
+                                                            lineNumber: 136,
+                                                            columnNumber: 49
+                                                        }, undefined),
+                                                        " ",
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                            onClick: ()=>copyToClipboard(data.Transaction_info),
+                                                            children: "Copy"
+                                                        }, void 0, false, {
+                                                            fileName: "components/editor.js",
+                                                            lineNumber: 136,
+                                                            columnNumber: 125
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "components/editor.js",
-                                                    lineNumber: 130,
-                                                    columnNumber: 13
+                                                    lineNumber: 136,
+                                                    columnNumber: 11
                                                 }, undefined)
                                             ]
                                         }, key, true, {
                                             fileName: "components/editor.js",
-                                            lineNumber: 126,
+                                            lineNumber: 132,
                                             columnNumber: 11
                                         }, undefined))
                                 }, void 0, false, {
                                     fileName: "components/editor.js",
-                                    lineNumber: 124,
+                                    lineNumber: 130,
                                     columnNumber: 7
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "components/editor.js",
-                            lineNumber: 122,
+                            lineNumber: 128,
                             columnNumber: 5
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "components/editor.js",
-                    lineNumber: 100,
+                    lineNumber: 106,
                     columnNumber: 3
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "components/editor.js",
-            lineNumber: 95,
+            lineNumber: 101,
             columnNumber: 8
         }, undefined)
     }, void 0, false);

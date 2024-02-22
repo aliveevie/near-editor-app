@@ -31,6 +31,12 @@ const CodeEditor = ({ account_id }) => {
         setEditorContent(value);
   };
 
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text);
+    // You can add additional logic here to provide user feedback that the text has been copied, such as displaying a message or changing the button's appearance.
+  };
+  
+
   const handleSave = () => {
 
     setShowBuilder(true);
@@ -53,7 +59,7 @@ const CodeEditor = ({ account_id }) => {
     .catch(error => {
       console.error('Error saving file:', error);
         setSource(erro);
-        setText("UnExpected Error try again");
+        setText("Build Failed, try again");
         setTimeout(() => {
           setShowBuilder(false);
         }, 5000);
@@ -72,6 +78,7 @@ const CodeEditor = ({ account_id }) => {
       }
     })
       .then(response => {
+        console.log(response.data)
         setOutput(response.data)
         setSource(success);
         setText("Deployed");
@@ -81,11 +88,10 @@ const CodeEditor = ({ account_id }) => {
           }, 5000) 
       })
       .catch(error => {
-        setSource(erro);
-        setText("Deploy Failed, Unexpected Error Try again");
+          setSource(erro);
+          setText("Deploy Failed, Try again");
         setTimeout(() => {
           setShowBuilder(false);
-         
         }, 5000);
       });
   };
@@ -124,10 +130,10 @@ const CodeEditor = ({ account_id }) => {
       <div className='console'>
         {output.map((data, key) => (
           <div key={key}>
-            <p><strong>Account ID:</strong> {data.Account_id}</p>
-            <p><strong>Contract Name:</strong> {data.ContractName}</p>
-            <p><strong>Transaction ID:</strong> {data.Trasaction_id}</p>
-            <p><strong>Transaction Info:</strong> <a href={data.Transaction_info} target='_blank'>{data.Transaction_info}</a></p>
+          <p><strong>Account ID:</strong> {data.Account_id} <button onClick={() => copyToClipboard(data.Account_id)}>Copy</button></p>
+          <p><strong>Contract Name:</strong> {data.ContractName} <button onClick={() => copyToClipboard(data.ContractName)}>Copy</button></p>
+          <p><strong>Transaction ID:</strong> {data.Trasaction_id} <button onClick={() => copyToClipboard(data.Trasaction_id)}>Copy</button></p>
+          <p><strong>Transaction Info:</strong> <a href={data.Transaction_info} target='_blank'>{data.Transaction_info}</a> <button onClick={() => copyToClipboard(data.Transaction_info)}>Copy</button></p>
           </div>
         ))}
       </div>
