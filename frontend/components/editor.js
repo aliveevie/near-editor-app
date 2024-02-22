@@ -28,29 +28,35 @@ const CodeEditor = ({ account_id }) => {
 
   const handleSave = () => {
 
-      setShowBuilder(true);
-      setText("Building Your Contract");
-      setSource(builder);
-      setEditor(true)
+    setShowBuilder(true);
+    setText("Building Your Contract");
+    setSource(builder);
+    setEditor(true);
 
-    axios.post('/user', editorContent, {
+    axios.post('http://localhost:3001/user', editorContent, {
       headers: {
         'Content-Type': 'text/plain'
       }
     })
     .then(response => {
-      console.log(response.data);
-      alert('File saved successfully!');
+        setTimeout(() => {
+          setSource(success);
+          setText("Building Was Success");
+        }, 10000)
+        setShowBuilder(false);
+        setEditor(false);
+       
     })
     .catch(error => {
       console.error('Error saving file:', error);
-      alert('Error saving file. Please try again.');
+        setSource(error);
+        setText("UnExpected Error Occured")
     });
   };
 
   const handleRunFile = () => {
     // Send a POST request to the backend endpoint to run the file
-    axios.post('/run-file', account_id, {
+    axios.post('http://localhost:3001/run-file', account_id, {
       headers: {
         'Content-Type': 'text/plain'
       }
