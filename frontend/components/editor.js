@@ -20,6 +20,7 @@ const CodeEditor = ({ account_id }) => {
   const [editor, setEditor] = useState(false);
   const [source, setSource] = useState('');
   const [text, setText] = useState('');
+  
 
   
   const handleChange = (value, event) => {
@@ -43,8 +44,8 @@ const CodeEditor = ({ account_id }) => {
           setSource(success);
           setText("Building Was Success");
         }, 10000)
-        setShowBuilder(false);
-        setEditor(false);
+      //  setShowBuilder(false);
+      //  setEditor(false);
        
     })
     .catch(error => {

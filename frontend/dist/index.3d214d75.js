@@ -28183,8 +28183,8 @@ const CodeEditor = ({ account_id })=>{
                 setSource((0, _successGifDefault.default));
                 setText("Building Was Success");
             }, 10000);
-            setShowBuilder(false);
-            setEditor(false);
+        //  setShowBuilder(false);
+        //  setEditor(false);
         }).catch((error)=>{
             console.error("Error saving file:", error);
             setSource(error);
@@ -28216,7 +28216,7 @@ const CodeEditor = ({ account_id })=>{
                 text: text
             }, void 0, false, {
                 fileName: "components/editor.js",
-                lineNumber: 82,
+                lineNumber: 83,
                 columnNumber: 37
             }, undefined),
             !editor && !showBuilder && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28231,7 +28231,7 @@ const CodeEditor = ({ account_id })=>{
                                 children: "Build"
                             }, void 0, false, {
                                 fileName: "components/editor.js",
-                                lineNumber: 86,
+                                lineNumber: 87,
                                 columnNumber: 9
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28240,13 +28240,13 @@ const CodeEditor = ({ account_id })=>{
                                 children: "Deploy"
                             }, void 0, false, {
                                 fileName: "components/editor.js",
-                                lineNumber: 87,
+                                lineNumber: 88,
                                 columnNumber: 9
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "components/editor.js",
-                        lineNumber: 85,
+                        lineNumber: 86,
                         columnNumber: 5
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Editor), {
@@ -28258,7 +28258,7 @@ const CodeEditor = ({ account_id })=>{
                         theme: "vs-dark"
                     }, void 0, false, {
                         fileName: "components/editor.js",
-                        lineNumber: 92,
+                        lineNumber: 93,
                         columnNumber: 5
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28268,7 +28268,7 @@ const CodeEditor = ({ account_id })=>{
                                 children: "Output"
                             }, void 0, false, {
                                 fileName: "components/editor.js",
-                                lineNumber: 102,
+                                lineNumber: 103,
                                 columnNumber: 3
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28281,28 +28281,11 @@ const CodeEditor = ({ account_id })=>{
                                                         children: "Account ID:"
                                                     }, void 0, false, {
                                                         fileName: "components/editor.js",
-                                                        lineNumber: 106,
-                                                        columnNumber: 12
-                                                    }, undefined),
-                                                    " ",
-                                                    data.Account_id
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "components/editor.js",
-                                                lineNumber: 106,
-                                                columnNumber: 9
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                                                        children: "Contract Name:"
-                                                    }, void 0, false, {
-                                                        fileName: "components/editor.js",
                                                         lineNumber: 107,
                                                         columnNumber: 12
                                                     }, undefined),
                                                     " ",
-                                                    data.ContractName
+                                                    data.Account_id
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/editor.js",
@@ -28312,14 +28295,14 @@ const CodeEditor = ({ account_id })=>{
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                                 children: [
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                                                        children: "Transaction ID:"
+                                                        children: "Contract Name:"
                                                     }, void 0, false, {
                                                         fileName: "components/editor.js",
                                                         lineNumber: 108,
                                                         columnNumber: 12
                                                     }, undefined),
                                                     " ",
-                                                    data.Trasaction_id
+                                                    data.ContractName
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/editor.js",
@@ -28329,10 +28312,27 @@ const CodeEditor = ({ account_id })=>{
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                                 children: [
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                                                        children: "Transaction Info:"
+                                                        children: "Transaction ID:"
                                                     }, void 0, false, {
                                                         fileName: "components/editor.js",
                                                         lineNumber: 109,
+                                                        columnNumber: 12
+                                                    }, undefined),
+                                                    " ",
+                                                    data.Trasaction_id
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "components/editor.js",
+                                                lineNumber: 109,
+                                                columnNumber: 9
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                        children: "Transaction Info:"
+                                                    }, void 0, false, {
+                                                        fileName: "components/editor.js",
+                                                        lineNumber: 110,
                                                         columnNumber: 12
                                                     }, undefined),
                                                     " ",
@@ -28342,36 +28342,36 @@ const CodeEditor = ({ account_id })=>{
                                                         children: data.Transaction_info
                                                     }, void 0, false, {
                                                         fileName: "components/editor.js",
-                                                        lineNumber: 109,
+                                                        lineNumber: 110,
                                                         columnNumber: 47
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/editor.js",
-                                                lineNumber: 109,
+                                                lineNumber: 110,
                                                 columnNumber: 9
                                             }, undefined)
                                         ]
                                     }, key, true, {
                                         fileName: "components/editor.js",
-                                        lineNumber: 105,
+                                        lineNumber: 106,
                                         columnNumber: 7
                                     }, undefined))
                             }, void 0, false, {
                                 fileName: "components/editor.js",
-                                lineNumber: 103,
+                                lineNumber: 104,
                                 columnNumber: 3
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "components/editor.js",
-                        lineNumber: 101,
+                        lineNumber: 102,
                         columnNumber: 1
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "components/editor.js",
-                lineNumber: 84,
+                lineNumber: 85,
                 columnNumber: 41
             }, undefined)
         ]
