@@ -10,7 +10,10 @@ import erro from '../assets/error.gif';
 import builder from '../assets/builder.gif';
 
 const CodeEditor = ({ account_id }) => {
-  const [editorContent, setEditorContent] = useState(`import { NearBindgen, near, call, view } from 'near-sdk-js';`);
+  const [editorContent, setEditorContent] = useState(`import { NearBindgen, near, call, view } from 'near-sdk-js';
+  // Write Your Smart Contract Here
+  
+  `);
 
   const [output, setOutput] = useState([]);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -33,9 +36,7 @@ const CodeEditor = ({ account_id }) => {
     setShowBuilder(true);
     setText("Building Your Contract");
     setSource(builder);
-    setEditor(true);
-
-
+    
     axios.post('http://localhost:3001/user', editorContent, {
       headers: {
         'Content-Type': 'text/plain'
@@ -43,11 +44,10 @@ const CodeEditor = ({ account_id }) => {
     })
     .then(response => {
       setSource(success);
-      setText("Contract Successfully Build");
-      setActive(!active)
+      setText("Success");
+      setActive(true);
       setTimeout(() => {
           setShowBuilder(false);
-          setEditor(false);
         }, 5000) 
     })
     .catch(error => {
@@ -56,12 +56,15 @@ const CodeEditor = ({ account_id }) => {
         setText("UnExpected Error try again");
         setTimeout(() => {
           setShowBuilder(false);
-          setEditor(false);
         }, 5000);
     });
   };
 
   const handleRunFile = () => {
+   
+    setShowBuilder(true);
+    setText("Deploying your Contract");
+    setSource(deploy);
     // Send a POST request to the backend endpoint to run the file
     axios.post('http://localhost:3001/run-file', account_id, {
       headers: {
@@ -70,11 +73,11 @@ const CodeEditor = ({ account_id }) => {
     })
       .then(response => {
         setOutput(response.data)
-        setSource(deploy);
-        setText("Contract Successfully Build");
+        setSource(success);
+        setText("Deployed");
         setTimeout(() => {
             setShowBuilder(false);
-            setEditor(false);
+         
           }, 5000) 
       })
       .catch(error => {
@@ -82,65 +85,57 @@ const CodeEditor = ({ account_id }) => {
         setText("Deploy Failed, Unexpected Error Try again");
         setTimeout(() => {
           setShowBuilder(false);
-          setEditor(false);
+         
         }, 5000);
       });
   };
 
   return (
         <>
-         {showBuilder && editor &&  <Builder source={source} text={text} />}
+       <div className='container-class'>
+  <div className='builder-container'>
+    {showBuilder && <Builder source={source} text={text} />}
+  </div>
 
-          {!editor  &&  !showBuilder && <div className='editor'>
-    <div className='buttons' >
-        <button onClick={handleSave} type='submit' >Build</button>
-
-        <button
-          onClick={handleRunFile}
-          type='submit'
-          disabled={!active}
-          className={active ? '' : 'disabled'}
-        >
-          {active ? 'Deploy' : 'Deploy (Disabled)'}
-</button>
-
-
-
-
-
+  <div className='editor'>
+    <div className='buttons'>
+      <button onClick={handleSave} type='submit'>Build</button>
+      <button
+        onClick={handleRunFile}
+        type='submit'
+        disabled={!active}
+        className={active ? '' : 'disabled'}
+      >
+        {active ? 'Deploy' : 'Deploy (Disabled)'}
+      </button>
     </div>
-
-   
-   
+  
     <Editor 
-    
-            height="70vh"
-            width={800}
-            defaultLanguage="typescript" 
-            defaultValue={editorContent}
-            onChange={handleChange}
-            theme='vs-dark'
+      height="70vh"
+      width={800}
+      defaultLanguage="typescript" 
+      defaultValue={editorContent}
+      onChange={handleChange}
+      theme='vs-dark'
     />
-<div className='output'>
-  <h3>Output</h3>
-  <div className='console'>
-    {output.map((data, key) => (
-      <div key={key}>
-        <p><strong>Account ID:</strong> {data.Account_id}</p>
-        <p><strong>Contract Name:</strong> {data.ContractName}</p>
-        <p><strong>Transaction ID:</strong> {data.Trasaction_id}</p>
-        <p><strong>Transaction Info:</strong> <a href={data.Transaction_info} target='_blank' >{data.Transaction_info}</a></p>
 
+    <div className='output'>
+      <h3>Output</h3>
+      <div className='console'>
+        {output.map((data, key) => (
+          <div key={key}>
+            <p><strong>Account ID:</strong> {data.Account_id}</p>
+            <p><strong>Contract Name:</strong> {data.ContractName}</p>
+            <p><strong>Transaction ID:</strong> {data.Trasaction_id}</p>
+            <p><strong>Transaction Info:</strong> <a href={data.Transaction_info} target='_blank'>{data.Transaction_info}</a></p>
+          </div>
+        ))}
       </div>
-    ))}
+    </div>
   </div>
 </div>
 
-
-</div>
-
-    }
-        
+       
         </>
   );
 };

@@ -291,11 +291,21 @@ button.disabled:hover {
   text-decoration: none;
 }
 
+.builder-container {
+  float: right;
+  margin-left: 20px;
+}
+
 .container {
   justify-content: center;
   align-items: center;
   height: 100vh;
   display: flex;
+}
+
+.text {
+  text-align: center;
+  display: block;
 }
 
 #near-wallet-selector-modal {

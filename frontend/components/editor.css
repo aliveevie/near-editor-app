@@ -67,4 +67,10 @@ button.disabled:hover {
   text-decoration: none;
 }
 
+.builder-container {
+  float: right; /* or use display: inline-block; */
+  margin-left: 20px; /* adjust as needed */
+}
+
+
   
