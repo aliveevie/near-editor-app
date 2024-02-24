@@ -46,7 +46,7 @@ const CodeEditor = ({ account_id }) => {
     setText("Building Your Contract");
     setSource(builder);
     
-    axios.post('http://localhost:3001/user', editorContent, {
+    axios.post('/user', editorContent, {
       headers: {
         'Content-Type': 'text/plain'
       }
@@ -75,7 +75,7 @@ const CodeEditor = ({ account_id }) => {
     setText("Deploying your Contract");
     setSource(deploy);
     // Send a POST request to the backend endpoint to run the file
-    axios.post('http://localhost:3001/run-file', account_id, {
+    axios.post('/run-file', account_id, {
       headers: {
         'Content-Type': 'text/plain'
       }
