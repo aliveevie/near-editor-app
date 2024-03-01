@@ -3,16 +3,12 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
-
-
 const crypto = require('crypto');
-
 const util = require('util');
-
 const exec = util.promisify(require('child_process').exec);
-
 const app = express();
 const PORT = 3001;
+
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); // Allow requests from any origin
@@ -23,7 +19,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json()); // Parse text/plain request body
 app.use(bodyParser.text());
-app.use(express.static('../frontend/dist'));
+app.use(express.static('../frontend/views'));
 
 // Endpoint to save the JavaScript file
 app.post('/user', (req, res) => {
@@ -104,7 +100,7 @@ app.post('/run-file', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html' ))
+    res.sendFile(path.join(__dirname, '../frontend/views', 'index.html' ))
 })
 
 // Start the server
