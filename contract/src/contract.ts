@@ -3,5 +3,3 @@ import { NearBindgen, near, call, view } from 'near-sdk-js';
   // This editor accept only Typescript
   // Dont Worry about the import error
   // Just build your contract
-  
-  
