@@ -10,7 +10,7 @@ contract/build/
 
 # build
 /out
-/dist
+
 
 # keys
 /templates/react/neardev
