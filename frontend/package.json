@@ -36,7 +36,7 @@
     "axios": "^1.6.7",
     "codemirror": "^6.0.1",
     "file-saver": "^2.0.5",
-    "monaco-editor": "^0.45.0",
+ 
     "near-api-js": "^0.44.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
