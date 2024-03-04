@@ -73,7 +73,7 @@ const CodeEditor = ({ account_id }) => {
   const handleRunFile = () => {
    
     setShowBuilder(true);
-    setText("Deploying your Contract");
+    setText("Deploying your Contract")
     setSource(deploy);
     // Send a POST request to the backend endpoint to run the file
     axios.post('https://near-editor-app.onrender.com/run-file', account_id, {
