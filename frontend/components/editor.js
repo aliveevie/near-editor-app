@@ -46,7 +46,7 @@ const CodeEditor = ({ account_id }) => {
     setText("Building Your Contract");
     setSource(builder);
     
-    axios.post('/user', editorContent, {
+    axios.post('https://nearscript-xml9g.ondigitalocean.app/user', editorContent, {
       headers: {
         'Content-Type': 'text/plain'
       }
@@ -76,7 +76,7 @@ const CodeEditor = ({ account_id }) => {
     setText("Deploying your Contract");
     setSource(deploy);
     // Send a POST request to the backend endpoint to run the file
-    axios.post('/run-file', account_id, {
+    axios.post('https://nearscript-xml9g.ondigitalocean.app/run-file', account_id, {
       headers: {
         'Content-Type': 'text/plain'
       }
