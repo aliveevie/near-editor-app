@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "express": "^4.18.2",
+    "lightningcss": "^1.24.0",
     "near-sdk-js": "^1.0.0"
   }
 }
