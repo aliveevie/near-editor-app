@@ -1,8 +1,8 @@
-# Near-Smart-Contract Builder
+# NearScript
 
 ## Introduction
 
-Near-Smart-Contract Builder is a simple tool designed to streamline the process of developing and deploying smart contracts on the Near blockchain. With this web-based application, developers can effortlessly create and deploy smart contracts, enabling them to focus more on the logic and functionality of their contracts rather than the intricacies of deployment.
+NearScript is a simple tool designed to streamline the process of developing and deploying smart contracts on the Near blockchain. With this web-based application, developers can effortlessly create and deploy smart contracts, enabling them to focus more on the logic and functionality of their contracts rather than the intricacies of deployment.
 
 ## Features
 
