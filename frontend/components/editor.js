@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Editor } from '@monaco-editor/react';
 import './editor.css';
-import { Builder, Success, Deploy, Error } from './loader';
+import { Builder } from './loader';
 import success from '../assets/success.gif';
 import deploy from '../assets/deploy.gif';
 import erro from '../assets/error.gif';
