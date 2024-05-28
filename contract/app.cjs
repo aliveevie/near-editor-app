@@ -11,21 +11,20 @@ const PORT = 3001;
 
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow requests from any origin
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allow specified HTTP methods
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Allow specified headers
+  res.setHeader('Access-Control-Allow-Origin', '*'); 
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); 
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); 
   next();
 });
 
-app.use(bodyParser.json()); // Parse text/plain request body
+app.use(bodyParser.json()); 
 app.use(bodyParser.text());
 app.use(express.static('../frontend/views'));
 
-// Endpoint to save the JavaScript file
+
 app.post('/user', (req, res) => {
   const content = req.body;
   console.log(content)
-  // Specify the file path where you want to save the file
   const filePath = path.join(__dirname, 'src', 'contract.ts');
 
   fs.writeFile(filePath, content, (err, stdout) => {
@@ -84,19 +83,7 @@ app.post('/run-file', (req, res) => {
       res.status(500).send('Error executing file');
     });
   
- /*
- *exec(`near deploy ${account_id} build/contract.wasm`, (error, stdout, stderr) => {
-    if (error) {
-      console.error('Error executing file:', error);
-      res.status(500).send('Error executing file');
-    } else {
-      console.log(stdout)
-      console.log('File executed successfully');
-      res.send('File executed successfully');
-    }
-  });
- *
- */ 
+
 });
 
 app.get('/', (req, res) => {
