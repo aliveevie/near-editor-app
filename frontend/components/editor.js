@@ -14,7 +14,6 @@ const CodeEditor = ({ account_id }) => {
   // Write Your Smart Contract in Typescript please
   // This editor accept only Typescript
   // Dont Worry about the import error
-  // Just build your contract
   
   `);
 
@@ -36,7 +35,6 @@ const CodeEditor = ({ account_id }) => {
 
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
-    // You can add additional logic here to provide user feedback that the text has been copied, such as displaying a message or changing the button's appearance.
   };
   
 
